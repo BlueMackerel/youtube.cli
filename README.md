@@ -1,4 +1,6 @@
 # Youtube.cli
+<img src="https://raw.githubusercontent.com/BlueMackerel/youtube.cli/master/img/screen.png" width="200">
+
 
 ## What is it?
 Youtube.cli is a command-line interface (CLI) tool that allows you to watch YouTube videos directly from your terminal in ascii color.
