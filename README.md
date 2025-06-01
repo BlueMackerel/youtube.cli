@@ -33,7 +33,7 @@ youtube.cli use dependencies.
 ### Example
 
 ```zsh
-build/exe.macosx-10.13-universal2-3.12/video dQw4w9WgXcQ
+./youtube-cli dQw4w9WgXcQ
 ```
 
 ## License

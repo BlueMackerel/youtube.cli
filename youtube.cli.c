@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     }
 
     char command[512];
-    snprintf(command, sizeof(command), "sudo build/exe.macosx-10.13-universal2-3.12/video %s", argv[1]);
+    snprintf(command, sizeof(command), "sudo python3 ~/youtube.cli/video.py %s", argv[1]);
 
     return system(command);
 }
