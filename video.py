@@ -155,26 +155,39 @@ if __name__ == "__main__":
     
     url = f"https://www.youtube.com/watch?v={sys.argv[1]}"
     print("Downloading video...")
-    video_path = download_youtube_video_yt_dlp(url, output_path=".")
+    try:
+        video_path = download_youtube_video_yt_dlp(url, output_path="~/youtube.cli/")
+    except KeyboardInterrupt:
+        print("\nDownload interrupted by user.")
+        sys.exit(0)
     print(f"Downloaded video saved to: {video_path}")
     
     audio_path = "audio.wav"
     print("Extracting audio...")
-    extract_audio(video_path, audio_path)
+    try:
+        extract_audio(video_path, audio_path)
+    except KeyboardInterrupt:
+        print("\nAudio extraction interrupted by user.")
+        sys.exit(0)
     print("Playing video and audio...")
     print("Press Ctrl+C to stop playback")
     
     # Clear screen and save cursor position
-    print("\033[2J\033[H", end="", flush=True)
-    
+    try:print("\033[2J\033[H", end="", flush=True)
+    except KeyboardInterrupt:
+        print("\nPlayback interrupted by user.")
+        sys.exit(0)
     try:
         audio_thread = threading.Thread(target=play_audio, args=(audio_path,), daemon=True)
         audio_thread.start()
         
         play_video_ascii_color(video_path)
-        
+    except KeyboardInterrupt:    
+        print("\nPlayback interrupted by user.")
+        sys.exit(0)
     except Exception as e:
-        print(f"Error during playback: {e}")
+        print(f"Error during playback: {e}")\
+
     finally:
         if 'audio_thread' in locals() and audio_thread.is_alive():
             audio_thread.join(timeout=1)(video_path)
