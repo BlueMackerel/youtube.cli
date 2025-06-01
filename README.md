@@ -6,16 +6,15 @@
 Youtube.cli is a command-line interface (CLI) tool that allows you to watch YouTube videos directly from your terminal in ascii color.
 
 ## Installation
-You can install youtube.cli using pip:
+You can install youtube.cli using git:
 
 ```zsh
 git clone https://github.com/BlueMackerel/youtube.cli.git
 ```
 
-The entire binary is in the build/exe.macosx-10.13-universal2-3.12 directory.
 
 ```zsh
-sudo build/exe.macosx-10.13-universal2-3.12/video dQw4w9WgXcQ
+youtube-cli dQw4w9WgXcQ
 ```
 
 ## dependencies
